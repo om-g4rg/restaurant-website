@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <nav class="sidebar">
+            <ul>
+                <li onclick="showPage('home')">Home</li>
+                <li onclick="showPage('menu')">Menu</li>
+                <li onclick="showPage('requests')">Requests</li>
+                <li onclick="showPage('reservations')">Reservations</li>
+            </ul>
+        </nav>
+    <!-- --------------- PLACEHOLDER ----------------------- -->
+    <main class="content">
+        <h1 id="pageTitle">Welcome</h1>
+        <div id="menuSection" class="hidden">
+            <div class="banner">
+                <img src="https://www.conradpune.com/wp-content/uploads/2022/08/1-8.png" alt="Menu Banner">
+            </div>
+            <button class="add-btn" onclick="addMenuItem()">+ Add</button>
+
+            <div id="menuContainer"></div>
+        </div>
+
+        <!-- ------------------POP_UP----------------------------- -->
+        <!-- Add Menu Popup -->
+        <div id="menuPopup" class="popup hidden">
+            <div class="popup-content">
+                <h2>Add Menu Item</h2>
+                <label>Upload Photo:</label>
+                <input type="file" id="menuPhoto"><br>
+
+                <label>Item Name:</label>
+                <input type="text" id="menuName" placeholder="Enter dish name"><br>
+
+                <label>Price:</label>
+                <input type="number" id="menuPrice" placeholder="Enter price"><br>
+
+                <label>Ingredients:</label>
+                <textarea id="menuIngredients" placeholder="Enter ingredients"></textarea><br>
+
+                <div class="popup-buttons">
+                    <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+                    <button class="save-btn" onclick="saveBtn()">Save</button>
+                </div>
+            </div>
+        </div>
+        <!-- -----------------------------POP_UP----------------------- -->
+        <!-- --------------------------------edit-popup--------------- -->
+        <div id="editPopup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closeEditPopup()">&times;</span>
+                <h2>Edit Menu Item</h2>
+                <input type="text" id="editName" placeholder="Item Name">
+                <input type="text" id="editIngredients" placeholder="Ingredients">
+                <input type="number" id="editPrice" placeholder="Price">
+                <input type="file" id="editImageFile">
+                <button id="saveEdit" onclick="saveEditedItem()">Save Changes</button>
+            </div>
+        </div>
+        <!-- ----------------------edit-popup----------------------- -->
+    </main>
+    <!-- -------------------------------------------- -->
+
+
+    <script src="script.js"></script>
+</body>
+</html>
