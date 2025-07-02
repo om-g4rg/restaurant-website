@@ -1,4 +1,3 @@
-
 async function menuDisplay(){
   try{
     const response= await fetch("http://localhost:8000/get-item");

@@ -10,11 +10,11 @@
   <!-- Navbar -->
   <nav class="navbar">
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="/index.html">Home</a></li>
       <li><a href="menu.html">Menu</a></li>
       <li><a href="reservation.html">Reservation</a></li>
-      <li><a href="index.html#about">About Us</a></li>
-      <li><a href="index.html#contact">Contact Us</a></li>
+      <li><a href="/index.html#about">About Us</a></li>
+      <li><a href="/index.html#contact">Contact Us</a></li>
     </ul>
   </nav>
 
@@ -26,27 +26,15 @@
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required>
 
-      <label for="date">Date:</label>
-      <input type="date" id="date" name="date" required>
-
-      <label for="time">Time:</label>
-      <input type="time" id="time" name="time" required>
-
-      <label for="guests">Number of Guests:</label>
-      <input type="number" id="guests" name="guests" required>
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" maxlength="10">
 
       <button type="button" id="proceedButton">Proceed to Payment</button>
     </form>
-
-    <!-- QR Code for Payment -->
-    <div id="paymentQR" style="display: none;">
-      <h3>Please scan this QR code to complete the payment</h3>
-      <img id="qrCodeImage" src="" alt="QR Code" />
-    </div>
-
-
-    <p id="reservationMessage" class="message"></p>
   </section>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
 
   <script src="/js/reservationScript.js"></script>
 </body>

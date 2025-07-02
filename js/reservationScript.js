@@ -1,30 +1,37 @@
-document.getElementById("proceedButton").addEventListener("click", async function() {
+document.getElementById("proceedButton").addEventListener("click", () => {
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  // const date = document.getElementById("date").value;
+  // const time = document.getElementById("time").value;
 
-  const reservationData = {
-      name: document.getElementById("name").value,
-      date: document.getElementById("date").value,
-      time: document.getElementById("time").value,
-      guests: document.getElementById("guests").value,
-  };
-
-  // Send reservation data to backend to create a payment order
-  const response = await fetch('/create-payment-order', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(reservationData)
-  });
-
-  const data = await response.json();
-
-  // Check if the order creation was successful
-  if (data.success) {
-      // Show the QR code for payment
-      document.getElementById("paymentQR").style.display = "block";
-      document.getElementById("qrCodeImage").src = data.qrCodeUrl; // URL for the payment QR code
-
-  } else {
-      alert("There was an error creating your payment. Please try again.");
+  // Simple validation
+  if (!name || !phone || phone.length !== 10) {
+    alert("Please fill all fields correctly.");
+    return;
   }
+
+  // Proceed to payment here...
+  const options = {
+    key: "rzp_test_3ACg221LR9sCJL", // Replace with your Razorpay Test Key ID
+    amount: 5000, // Amount in paisa (₹50.00)
+    currency: "INR",
+    name: "Your Restaurant Name",
+    description: "Reservation Payment",
+    handler: function (response) {
+        alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+        // Save reservation to your database here using fetch() or AJAX
+    },
+    prefill: {
+        name: name,
+        contact: phone
+    },
+    theme: {
+        color: "#3399cc"
+    }
+};
+
+const rzp1 = new Razorpay(options);
+rzp1.open();
 });
+
+

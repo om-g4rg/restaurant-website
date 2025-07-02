@@ -9,11 +9,6 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(cors());
 
-// RAW bodyParser middleware for webhook only
-app.use('/razorpay-webhook', bodyParser.raw({ type: 'application/json' }));
-
-// Razorpay webhook secret (the one you set on Razorpay dashboard)
-const RAZORPAY_WEBHOOK_SECRET = 'your_webhook_secret';
 
 mongoose.connect("mongodb://127.0.0.1:27017/restaurant_db")
 .then(()=>console.log("mongodb running"))
@@ -108,11 +103,7 @@ app.put(`/edit-menu-item/:id`, async (req, res)=>{
 })
 
 
-// ---------------------------------reservation-----------------------------------
 
-
-
-// ---------------------------------LISTENING-------------------------------------
 app.listen(8000,()=>{
   console.log("listening..")
 })
