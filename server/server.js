@@ -35,6 +35,23 @@ const menuSchema = new mongoose.Schema({
 
 const menuModel = mongoose.model("menuModel",menuSchema);
 
+const reservationSchema = new mongoose.Schema({
+  name:{
+    type:String,
+    required:true
+  },
+  phone:{
+    type:Number,
+    required:true
+  },
+  guests:{
+    type:Number,
+    required:true
+  }
+})
+
+const reservationModel = mongoose.model("reservationModel",reservationSchema);
+
 
 //---------------------------------image endpoint---------------
 app.post('/add-item', async(req, res)=>{
@@ -55,6 +72,28 @@ app.post('/add-item', async(req, res)=>{
     res.status(500).json({ message: `Error occurred: ${err.message}`})
   }
 })
+
+
+app.post('/add-reservation', async(req, res)=>{
+  try{
+    const {name, phone, guests} =req.body;
+    const newReservation= new reservationModel({
+      name,
+      phone,
+      guests
+    })
+
+    await newReservation.save();
+    res.status(201).json({Message:"Reservation added"});
+
+  }catch(err){
+    console.error("Error in /add-reservation:", err);  // Logs the exact error in terminal
+    res.status(500).json({ message: `Error occurred: ${err.message}`})
+  }
+})
+
+
+
 
 app.get(`/get-item`, async (req,res)=>{
   try{
