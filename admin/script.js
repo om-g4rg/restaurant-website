@@ -16,9 +16,18 @@ function showPage(page) {
 }
 // -------------------- POP_UP -----------------------------
 // Function to show the popup
-function addMenuItem() {
-    document.getElementById("menuPopup").classList.remove("hidden");
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const addBtn = document.getElementById("addMenuBtn");
+    if (addBtn) {
+        addBtn.addEventListener("click", () => {
+            console.log("✅ Add Menu Clicked");
+            document.getElementById("menuPopup").classList.remove("hidden");
+        });
+    }
+
+    // Load menu items when page loads
+    adminMenuDisplay();
+});
 
 // Function to close the popup
 function closePopup() {
