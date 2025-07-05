@@ -11,13 +11,13 @@
             <ul>
                 <li onclick="showPage('home')">Home</li>
                 <li onclick="showPage('menu')">Menu</li>
-                <li onclick="showPage('requests')">Requests</li>
                 <li onclick="showPage('reservations')">Reservations</li>
             </ul>
         </nav>
     <!-- --------------- PLACEHOLDER ----------------------- -->
     <main class="content">
         <h1 id="pageTitle">Welcome</h1>
+        <!-- ---------------------------MENU SECTION---------------------------- -->
         <div id="menuSection" class="hidden">
             <div class="banner">
                 <img src="https://www.conradpune.com/wp-content/uploads/2022/08/1-8.png" alt="Menu Banner">
@@ -26,6 +26,17 @@
 
             <div id="menuContainer"></div>
         </div>
+
+        <!-- ----------------------------RESERVATION SECTION--------------------------- -->
+
+        <div id="reservationSection" class="hidden">
+            <div class="banner">
+                <img src="https://www.conradpune.com/wp-content/uploads/2022/08/1-8.png" alt="Reservation Banner">
+            </div>
+
+            <div id="reservationContainer"></div>
+        </div>
+
 
         <!-- ------------------POP_UP----------------------------- -->
         <!-- Add Menu Popup -->

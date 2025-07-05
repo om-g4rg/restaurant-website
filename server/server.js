@@ -105,6 +105,17 @@ app.get(`/get-item`, async (req,res)=>{
 })
 
 
+
+app.get(`/get-reservation`, async (req,res)=>{
+  try{
+    const reservationItem = await reservationModel.find();
+    res.status(200).json(reservationItem);
+  }catch(err){
+    res.status(500).json({message:err.message});
+  }
+})
+
+
 app.delete(`/delete-menu-item/:id`, async (req, res)=>{
   try{
     const itemId= req.params.id;

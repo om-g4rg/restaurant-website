@@ -2,16 +2,25 @@
 let currentEditingItemId = null;
 
 const menuSection = document.getElementById('menuSection');
+const reservationSection =document.getElementById(`reservationSection`);
 function showPage(page) {
-    if (page !== 'menu') {
-        document.getElementById('pageTitle').innerText = page;
-        menuSection.classList.add('hidden');
-    }
-    else if (page === 'menu') {
+
+    if (page === 'menu') {
         document.getElementById('pageTitle').innerText = " ";
-        menuSection.classList.remove('hidden'); // Show menu section
-    } else {
+        menuSection.classList.remove('hidden');// Show menu section
+        reservationSection.classList.add(`hidden`);
+        adminMenuDisplay();
+    }
+    else if(page === `reservations`){
+        document.getElementById(`pageTitle`).innerText=" ";
+        reservationSection.classList.remove(`hidden`);
+        menuSection.classList.add('hidden');
+        adminReservationDisplay();
+    }
+     else {
+        document.getElementById('pageTitle').innerText = page;
         menuSection.classList.add('hidden'); // Hide menu section
+        reservationSection.classList.add(`hidden`);
     }
 }
 // -------------------- POP_UP -----------------------------
@@ -119,7 +128,37 @@ async function adminMenuDisplay(){
     }
   }
 
-  window.onload=adminMenuDisplay;
+  
+// --------------------------------RESERVATION DISPLAY------------------------
+
+async function adminReservationDisplay(){
+    try{
+      const response= await fetch("http://localhost:8000/get-reservation");
+      const menuItems= await response.json();
+  
+      const container=document.querySelector("#reservationContainer");
+      container.innerHTML="";
+  
+      menuItems.forEach(item => {
+        const newItem = document.createElement("div");
+        newItem.classList.add("reservationItem");
+  
+        newItem.innerHTML = `
+        <h3>${item.name}</h3>
+        <p>${item.phone}</p>
+        <span>$${item.guests}</span>
+    `;
+        container.appendChild(newItem);
+    });
+      
+    }catch(err){
+      alert(`Error is :${err}`);
+    }
+  }
+ 
+
+
+// ------------------------------------------------------------------------------
 
 async function deleteMenuItem(itemId){
     try{
