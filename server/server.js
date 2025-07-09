@@ -58,6 +58,14 @@ const reservationSchema = new mongoose.Schema({
   guests:{
     type:Number,
     required:true
+  },
+  date: {
+    type: String,
+    required: true
+  },
+  time: {
+    type: String,
+    required: true
   }
 })
 
@@ -88,11 +96,13 @@ app.post('/add-item', async(req, res)=>{
 
 app.post('/add-reservation', async(req, res)=>{
   try{
-    const {name, phone, guests} =req.body;
+    const {name, phone, guests,date,time} =req.body;
     const newReservation= new reservationModel({
       name,
       phone,
-      guests
+      guests,
+      date,
+      time
     })
 
     await newReservation.save();
@@ -163,6 +173,53 @@ app.put(`/edit-menu-item/:id`, async (req, res)=>{
     res.status(500).json({message:`error: ${err}`});
   }
 })
+
+
+app.get("/check-reservation", async (req, res) => {
+  try {
+    const { name, phone, guests, date, time } = req.query;
+
+    const reservation = await reservationModel.findOne({
+      name,
+      phone,
+      guests,
+      date,
+      time,
+    });
+
+    if (reservation) {
+      res.json({ exists: true, reservation });
+    } else {
+      res.json({ exists: false });
+    }
+  } catch (err) {
+    console.error("Error in check-reservation:", err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.delete("/delete-reservation", async (req, res) => {
+  try {
+    const { name, phone, guests, date, time } = req.body;
+
+    const deleted = await reservationModel.findOneAndDelete({
+      name,
+      phone,
+      guests,
+      date,
+      time
+    });
+
+    if (deleted) {
+      res.json({ success: true, message: "Reservation deleted." });
+    } else {
+      res.json({ success: false, message: "Reservation not found." });
+    }
+  } catch (err) {
+    console.error("Error deleting reservation:", err);
+    res.status(500).json({ error: "Internal server error." });
+  }
+});
 
 
 

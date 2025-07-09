@@ -32,9 +32,39 @@
       <label for="phone">Guests:</label>
       <input type="number" id="Guests" name="Guests" maxlength="2">
 
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Select Time:</label>
+      <select id="time" name="time" required>
+        <option value="">-- Select a Time --</option>
+        <option value="08:30 AM">08:30 AM</option>
+        <option value="09:30 AM">09:30 AM</option>
+        <option value="10:30 AM">10:30 AM</option>
+        <option value="11:30 AM">11:30 AM</option>
+        <option value="12:30 PM">12:30 PM</option>
+        <option value="01:30 PM">01:30 PM</option>
+        <option value="02:30 PM">02:30 PM</option>
+        <option value="03:30 PM">03:30 PM</option>
+        <option value="04:30 PM">04:30 PM</option>
+        <option value="05:30 PM">05:30 PM</option>
+        <option value="06:30 PM">06:30 PM</option>
+        <option value="07:30 PM">07:30 PM</option>
+        <option value="08:30 PM">08:30 PM</option>
+        <option value="09:30 PM">09:30 PM</option>
+      </select>
+
       <button type="button" id="proceedButton">Proceed to Payment</button>
+
+
+          <!-- ✅ Additional Buttons -->
+    <button type="button" id="checkReservationBtn" style="margin-top: 10px;">Check Reservation</button>
+    
+    <button type="button" id="cancelReservationBtn" style="margin-top: 10px; background-color: #ff5555; color: white;">Cancel Reservation</button>
     </form>
   </section>
+
+  
 
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 

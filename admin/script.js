@@ -154,6 +154,8 @@ async function adminReservationDisplay(){
         newItem.innerHTML = `
         <h3>${item.name}</h3>
         <p>${item.phone}</p>
+        <p>${item.date}</p>
+        <p>${item.time}</p>
         <span>Guests: ${item.guests}</span>
     `;
         container.appendChild(newItem);
