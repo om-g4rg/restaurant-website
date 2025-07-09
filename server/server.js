@@ -16,22 +16,33 @@ mongoose.connect("mongodb://127.0.0.1:27017/restaurant_db")
 
 // --------------------------------menu---------------------------
 const menuSchema = new mongoose.Schema({
-  itemName:{
-    type:String,
-    required:true
+  itemName: {
+    type: String,
+    required: true,
+    // trim: true
   },
-  price:{
-    type:String,
-    required:true
+  price: {
+    type: Number, // Store as number for calculations
+    required: true,
+    // min: 0
   },
-  ingredients:{
-    type:String,
-    required:true
+  ingredients: {
+    type: String,
+    required: true,
+    // trim: true
   },
-  image:{
-    type:String
+  image: {
+    type: String,
+    // default: ""
+  },
+  category: {
+    type: String,
+    required: true,
+    enum: ['starters', 'main-course', 'dessert', 'beverages'],
+    lowercase: true,
+    // trim: true
   }
-})
+});
 
 const menuModel = mongoose.model("menuModel",menuSchema);
 
@@ -56,12 +67,13 @@ const reservationModel = mongoose.model("reservationModel",reservationSchema);
 //---------------------------------image endpoint---------------
 app.post('/add-item', async(req, res)=>{
   try{
-    const {itemName, price, ingredients, image} =req.body;
+    const {itemName, price, ingredients, image, category} =req.body;
     const newItem= new menuModel({
       itemName,
       price,
       ingredients,
-      image
+      image,
+      category
     })
 
     await newItem.save();

@@ -41,39 +41,64 @@
         <!-- ------------------POP_UP----------------------------- -->
         <!-- Add Menu Popup -->
         <div id="menuPopup" class="popup hidden">
-            <div class="popup-content">
-                <h2>Add Menu Item</h2>
-                <label>Upload Photo:</label>
-                <input type="file" id="menuPhoto"><br>
+  <div class="popup-content">
+    <h2>Add Menu Item</h2>
 
-                <label>Item Name:</label>
-                <input type="text" id="menuName" placeholder="Enter dish name"><br>
+    <label>Upload Photo:</label>
+    <input type="file" id="menuPhoto"><br>
 
-                <label>Price:</label>
-                <input type="number" id="menuPrice" placeholder="Enter price"><br>
+    <label>Item Name:</label>
+    <input type="text" id="menuName" placeholder="Enter dish name"><br>
 
-                <label>Ingredients:</label>
-                <textarea id="menuIngredients" placeholder="Enter ingredients"></textarea><br>
+    <label>Price:</label>
+    <input type="number" id="menuPrice" placeholder="Enter price"><br>
 
-                <div class="popup-buttons">
-                    <button class="cancel-btn" onclick="closePopup()">Cancel</button>
-                    <button class="save-btn" onclick="saveBtn()">Save</button>
-                </div>
-            </div>
-        </div>
+    <label>Ingredients:</label>
+    <textarea id="menuIngredients" placeholder="Enter ingredients"></textarea><br>
+
+    <!-- ✅ Category Dropdown -->
+    <label>Category:</label>
+    <select id="menuCategory">
+      <option value="" disabled selected>Select a category</option>
+      <option value="starters">Starters</option>
+      <option value="main-course">Main Course</option>
+      <option value="dessert">Dessert</option>
+      <option value="beverages">Beverages</option>
+    </select><br>
+
+    <div class="popup-buttons">
+      <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+      <button class="save-btn" onclick="saveBtn()">Save</button>
+    </div>
+  </div>
+</div>
+
         <!-- -----------------------------POP_UP----------------------- -->
         <!-- --------------------------------edit-popup--------------- -->
-        <div id="editPopup" class="popup hidden">
-            <div class="popup-content">
-                <span class="close-btn" onclick="closeEditPopup()">&times;</span>
-                <h2>Edit Menu Item</h2>
-                <input type="text" id="editName" placeholder="Item Name">
-                <input type="text" id="editIngredients" placeholder="Ingredients">
-                <input type="number" id="editPrice" placeholder="Price">
-                <input type="file" id="editImageFile">
-                <button id="saveEdit" onclick="saveEditedItem()">Save Changes</button>
-            </div>
-        </div>
+<div id="editPopup" class="popup hidden">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closeEditPopup()">&times;</span>
+    <h2>Edit Menu Item</h2>
+
+    <input type="text" id="editName" placeholder="Item Name">
+    <input type="text" id="editIngredients" placeholder="Ingredients">
+    <input type="number" id="editPrice" placeholder="Price">
+    <input type="file" id="editImageFile">
+
+    <!-- ✅ Category Dropdown -->
+    <label>Category:</label>
+    <select id="editCategory">
+      <option value="" disabled selected>Select category</option>
+      <option value="starters">Starters</option>
+      <option value="main-course">Main Course</option>
+      <option value="dessert">Dessert</option>
+      <option value="beverages">Beverages</option>
+    </select><br>
+
+    <button id="saveEdit" onclick="saveEditedItem()">Save Changes</button>
+  </div>
+</div>
+
         <!-- ----------------------edit-popup----------------------- -->
     </main>
     <!-- -------------------------------------------- -->

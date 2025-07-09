@@ -49,6 +49,7 @@ function saveBtn(){
     const price = document.getElementById("menuPrice").value;
     const ingredients = document.getElementById("menuIngredients").value;
     const image = document.getElementById("menuPhoto").files[0];
+    const category = document.getElementById("menuCategory").value;
     if (!itemName || !price || !ingredients || !image) {
         alert("Please fill out all fields.");
         return;
@@ -63,7 +64,8 @@ function saveBtn(){
             itemName,
             price: parseFloat(price),
             ingredients,
-            image: imageFile
+            image: imageFile,
+            category
         }
 
         try{
@@ -100,14 +102,20 @@ async function adminMenuDisplay(){
         const newItem = document.createElement("div");
         newItem.classList.add("menuItem");
   
-        newItem.innerHTML = `
-        <img src="${item.image}" alt="${item.name}">
-        <h3>${item.itemName}</h3>
-        <p>${item.ingredients}</p>
-        <span>$${item.price}</span>
-        <button class="edit-btn" data-id="${item._id}">Update</button>
-        <button class="remove-btn" data-id="${item._id}">Remove</button>
-    `;
+        newItem.innerHTML = `<div class="menu-card">
+                                    <img class="menu-image" src="${item.image}" alt="${item.itemName}">
+                                    <div class="menu-details">
+                                    <h3 class="menu-title">${item.itemName}</h3>
+                                    <p class="menu-ingredients">${item.ingredients}</p>
+                                    <p class="menu-category"><strong>Category:</strong> ${item.category}</p>
+                                    <span class="menu-price">₹${item.price}</span>
+                                    <div class="menu-actions">
+                                        <button class="edit-btn" data-id="${item._id}">Update</button>
+                                        <button class="remove-btn" data-id="${item._id}">Remove</button>
+                                    </div>
+                                    </div>
+                                </div>
+                                `;
         container.appendChild(newItem);
     });
         document.querySelectorAll(".remove-btn").forEach(button => {
@@ -146,7 +154,7 @@ async function adminReservationDisplay(){
         newItem.innerHTML = `
         <h3>${item.name}</h3>
         <p>${item.phone}</p>
-        <span>$${item.guests}</span>
+        <span>Guests: ${item.guests}</span>
     `;
         container.appendChild(newItem);
     });
@@ -186,6 +194,8 @@ async function openEditPopup(itemId) {
             document.getElementById("editName").value = item.itemName;
             document.getElementById("editIngredients").value = item.ingredients;
             document.getElementById("editPrice").value = item.price;
+            document.getElementById("editCategory").value = item.category
+
         });
 
     document.getElementById("editPopup").style.display = "block";
@@ -208,7 +218,9 @@ async function saveEditedItem(){
         itemName: document.getElementById("editName").value,
         ingredients:document.getElementById("editIngredients").value,
         price:document.getElementById("editPrice").value,
-        image:null
+        image:null,
+        category:document.getElementById("editCategory").value,
+
     }
 
     // --------------------------------------------

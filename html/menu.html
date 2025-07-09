@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Menu</title>
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/menu.css"> <!-- Menu-specific styles -->
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- Main Navbar -->
   <nav class="navbar">
     <ul>
       <li><a href="../index.html">Home</a></li>
@@ -19,13 +20,43 @@
     </ul>
   </nav>
 
+  <!-- Category Navbar -->
+  <div class="category-navbar">
+    <a href="#starters">Starters</a>
+    <a href="#main-course">Main Course</a>
+    <a href="#dessert">Dessert</a>
+    <a href="#beverages">Beverages</a>
+  </div>
+
   <!-- Menu Section -->
   <section class="menu">
     <h2 id="headerText">Our Menu</h2>
-    <div class="menuContainer"></div>
+    <div class="menuContainer">
 
+      <section class="menuSection" id="starters">
+        <h2>Starters</h2>
+        <div class="menuItems" id="starters-items"></div>
+      </section>
+
+      <section class="menuSection" id="main-course">
+        <h2>Main Course</h2>
+        <div class="menuItems" id="main-course-items"></div>
+      </section>
+
+      <section class="menuSection" id="dessert">
+        <h2>Dessert</h2>
+        <div class="menuItems" id="dessert-items"></div>
+      </section>
+
+      <section class="menuSection" id="beverages">
+        <h2>Beverages</h2>
+        <div class="menuItems" id="beverages-items"></div>
+      </section>
+
+    </div>
   </section>
 
   <script src="/js/menuScript.js"></script>
 </body>
 </html>
+
