@@ -16,18 +16,39 @@ window.onload = function () {
 };
 
 
+function convertTo24Hour(timeStr) {
+  const [time, modifier] = timeStr.split(" "); // "08:30", "AM"
+  let [hours, minutes] = time.split(":");
+
+  hours = parseInt(hours, 10);
+
+  if (modifier === "PM" && hours !== 12) {
+    hours += 12;
+  }
+  if (modifier === "AM" && hours === 12) {
+    hours = 0;
+  }
+
+  // Pad single digit hours with leading 0
+  const hourStr = hours.toString().padStart(2, "0");
+  return `${hourStr}:${minutes}`;
+}
+
 document.getElementById("proceedButton").addEventListener("click", () => {
   const name = document.getElementById("name").value.trim();
   const phone = document.getElementById("phone").value.trim();
   const guests = document.getElementById("Guests").value.trim();
   const date = document.getElementById("date").value;
-  const time = document.getElementById("time").value;
+  let time = document.getElementById("time").value;
 
   // Simple validation
   if (!name || !phone || phone.length !== 10 ||!guests||!date ||!time ) {
     alert("Please fill all fields correctly.");
     return;
   }
+
+  time = convertTo24Hour(time);
+
   const newReservation={
       name,
       phone,
@@ -100,7 +121,7 @@ document.getElementById("checkReservationBtn").addEventListener("click", async (
       phone,
       guests,
       date,
-      time,
+      time
     });
 
     const response = await fetch(`http://localhost:8000/check-reservation?${query.toString()}`);

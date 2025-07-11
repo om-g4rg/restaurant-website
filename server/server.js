@@ -60,12 +60,18 @@ const reservationSchema = new mongoose.Schema({
     required:true
   },
   date: {
-    type: String,
+    type: Date,
     required: true
   },
   time: {
     type: String,
     required: true
+  },
+  deleteAfter:{
+    type : Date,
+    index:{
+      expires:0
+    }
   }
 })
 
@@ -97,12 +103,16 @@ app.post('/add-item', async(req, res)=>{
 app.post('/add-reservation', async(req, res)=>{
   try{
     const {name, phone, guests,date,time} =req.body;
+    const reservationTime = new Date(`${date}T${time}:00`);
+
+    const deleteAfter = new Date(reservationTime.getTime()+10*1000);
     const newReservation= new reservationModel({
       name,
       phone,
       guests,
       date,
-      time
+      time,
+      deleteAfter
     })
 
     await newReservation.save();
