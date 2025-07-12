@@ -1,0 +1,68 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar Container */
+.navbar {
+  background-color: transparent;
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Mobile default */
+  position: relative;
+}
+
+/* Nav List */
+.navbar ul {
+  display: flex;
+  gap: 2.4rem;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Nav Links */
+.navbar ul li a {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Styles */
+.navbar ul li a:hover {
+  background-color: #6A3D36;
+  color: white;
+}
+
+/* 🍽️ Emoji Icon */
+.nav-icon {
+  font-size: 1.5rem;
+  color: black;
+  margin-left: 1.5rem;
+  display: none; /* Hidden by default (mobile) */
+}
+
+/* Tablet and PC screens */
+@media (min-width: 768px) {
+  .navbar {
+    justify-content: flex-end;        /* Push contents to right */
+  }
+
+  .navbar ul {
+    margin-right: 1rem;               /* Leave small space before icon */
+  }
+
+  .nav-icon {
+    display: block;                   /* Show emoji */
+    margin-right: 2rem;               /* Space from right edge */
+  }
+}
