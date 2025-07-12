@@ -9,4 +9,66 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+/* Text Overlay */
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  color: black;
+  max-width: 40%;
+  font-family: sans-serif;
+  z-index: 2;
+}
+
+/* Title */
+.banner-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Paragraph */
+.banner-text p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* Container for Learn More and Scroll Down */
+.banner-cta {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Learn More Text */
+.learn-more {
+  font-size: 1.1rem;
+  color: black;
+  font-weight: 500;
+}
+
+/* Scroll Button */
+.scroll-btn {
+  background-color: #6A3D36;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect on Scroll Button */
+.scroll-btn:hover {
+  background-color: #512e28;  /* Slightly darker */
+  transform: scale(1.05);
+}
+
+html {
+  scroll-behavior: smooth;
 }

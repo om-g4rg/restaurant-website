@@ -20,6 +20,20 @@
   z-index: 2;
 }
 
+.nav-logo {
+  flex: 1; /* Pushes everything else to the right */
+}
+
+/* Logo Container */
+.nav-logo a {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  font-family: sans-serif;
+}
+
+
 /* Nav List */
 .navbar ul {
   display: flex;
