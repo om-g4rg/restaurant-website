@@ -1,0 +1,149 @@
+/* Global reset & base */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fffaf5; /* soft cream bg */
+  overflow-x: hidden;
+  color: #3e2723; /* main text color */
+}
+
+.menu-banner {
+  height: 30vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.menu-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* Entire section styling */
+.menu {
+  padding-top: 0; /* to sit below navbar */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Menu heading */
+.menu #headerText {
+  font-size: 2.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 40px 0 20px;
+  color: #3e2723;
+}
+
+/* Container for categories */
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Each category section */
+.menuSection {
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  background-color: transparent;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+/* Category title */
+.menuSection > h2 {
+  margin: 20px 15px 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3e2723;
+  text-transform: uppercase;
+}
+
+/* Menu items grid */
+.menuItems {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* default for mobile */
+  gap: 30px; /* increased spacing */
+  padding: 20px 15px 30px;
+  box-sizing: border-box;
+}
+
+/* Responsive: 4 items per row on larger screens */
+@media (min-width: 768px) {
+  .menuItems {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Each menu item container */
+.menuItem {
+  height: 300px;
+  width: 100%;
+}
+
+/* Card design */
+.menu-card {
+  background-color: #4e342e;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: #ffffff;
+}
+
+/* Hover effect */
+.menu-card:hover {
+  transform: scale(1.04);
+  background-color: #d7a86e;
+  color: #000;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.menu-card:hover .menu-title,
+.menu-card:hover .menu-ingredients,
+.menu-card:hover .menu-price {
+  font-weight: bold;
+}
+
+/* Image: 70% height */
+.menu-image {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+/* Text section: 30% */
+.menu-details {
+  height: 30%;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Text styling */
+.menu-title {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.menu-ingredients {
+  font-size: 0.85rem;
+  color: inherit;
+  margin: 6px 0;
+}
+
+.menu-price {
+  font-size: 1rem;
+  color: inherit;
+}
