@@ -1,137 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EAT OUT</title>
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/banner.css">
-  <link rel="stylesheet" href="css/description.css">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/banner.css" />
+  <link rel="stylesheet" href="css/description.css" />
+  <link rel="stylesheet" href="css/foodSection.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-      <!-- Logo div on far left -->
-    <div class="nav-logo">
-      <a href="index.html">LOGO</a> <!-- Replace "LOGO" with an image later -->
-    </div>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="./html/menu.html">Menu</a></li>
-      <li><a href="./html/reservation.html">Reservation</a></li>
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#contact">Contact Us</a></li>
-    </ul>
-    <div class="nav-icon">🍽️</div>
-  </nav>
 
-  <!-- ------------ BANNER SECTION ----------------------- -->
+  <!-- ✅ Sticky Footer Page Container START -->
+  <div class="page-container">
 
-  <section class="banner-section">
-    <img src="/assets/images/banner01.jpg" alt="Restaurant banner Image">
-
-    <div class="banner-text">
-      <h1>Welcome to EAT OUT</h1>
-      <p>Where flavors meet elegance. Experience the finest dining in town.</p>
-
-      <div class="banner-cta">
-        <span class="learn-more">Learn More</span>
-          <a href="#description" class="scroll-btn">
-            Scroll Down ↓
-          </a>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-logo">
+        <a href="index.html">LOGO</a>
       </div>
-    </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="./html/menu.html">Menu</a></li>
+        <li><a href="./html/reservation.html">Reservation</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+      <div class="nav-icon">🍽️</div>
+    </nav>
 
-  </section>
+    <!-- ✅ Main Content -->
+    <main class="main-content">
 
-<!-- --- Discription section--- -->
-<section class="description-section" id="description">
-  <div class="left-content">
-    <h1>Big Ass Title</h1>
-    <p>
-      This is a large and readable paragraph. It stays left aligned and scales well for desktop and tablets. You can describe your product, brand, or message here.
-    </p>
+      <!-- Banner Section -->
+      <section class="banner-section">
+        <img src="/assets/images/banner01.jpg" alt="Restaurant banner Image" />
+        <div class="banner-text">
+          <h1>Welcome to EAT OUT</h1>
+          <p>Where flavors meet elegance. Experience the finest dining in town.</p>
+          <div class="banner-cta">
+            <span class="learn-more">Learn More</span>
+            <a href="#description" class="scroll-btn">Scroll Down ↓</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Description Section -->
+      <section class="description-section" id="description">
+        <div class="left-content">
+          <h1>Big Ass Title</h1>
+          <p>This is a large and readable paragraph...</p>
+        </div>
+        <div class="right-content">
+          <div class="image-container">
+            <img src="https://via.placeholder.com/600x400/000000/FFFFFF?text=Image+1" class="active" />
+            <img src="https://via.placeholder.com/600x400/333333/FFFFFF?text=Image+2" />
+            <img src="https://via.placeholder.com/600x400/666666/FFFFFF?text=Image+3" />
+            <div class="indicator-wrapper">
+              <div class="indicator active"></div>
+              <div class="indicator"></div>
+              <div class="indicator"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Add food-section or other content here -->
+
+    </main>
+
+    <!-- ✅ Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-left">
+          <h1>Milton's</h1>
+          <p>
+            Milton's is your cozy neighborhood diner, serving up delicious dishes made with love and tradition...
+          </p>
+        </div>
+        <div class="footer-right">
+          <div class="footer-column">
+            <h3>Page</h3>
+            <span>Home</span><span>Menu</span><span>Reservation</span><span>About</span>
+          </div>
+          <div class="footer-column">
+            <h3>Links</h3>
+            <span>Instagram</span><span>Facebook</span><span>Twitter</span><span>LinkedIn</span>
+          </div>
+          <div class="footer-column">
+            <h3>Contacts</h3>
+            <span>miltons@example.com</span><span>+91-9876543210</span>
+            <span>123 Diner St, Cityville</span><span>WhatsApp</span>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="footer-bottom">
+        <p>Verified by National Restaurant Authority</p>
+      </div>
+    </footer>
+    
   </div>
-
-  <div class="right-content">
-    <div class="image-container">
-      <img src="https://via.placeholder.com/600x400/000000/FFFFFF?text=Image+1" class="active" />
-      <img src="https://via.placeholder.com/600x400/333333/FFFFFF?text=Image+2" />
-      <img src="https://via.placeholder.com/600x400/666666/FFFFFF?text=Image+3" />
-
-      <div class="indicator-wrapper">
-        <div class="indicator active"></div>
-        <div class="indicator"></div>
-        <div class="indicator"></div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- -------------------------- -->
-
-
-  <!-- About Us -->
-  <section id="about">
-    <h2>About Us</h2>
-    <div class="about-content">
-      <div class="about-text">
-        <p>
-          Welcome to <strong>EAT OUT</strong>, where culinary excellence meets unparalleled ambiance. 
-          Nestled in the heart of the city, we pride ourselves on offering a dining experience that transcends 
-          the ordinary. Our chefs, trained in the finest culinary traditions, craft dishes that are both 
-          innovative and timeless. Each ingredient is meticulously sourced, ensuring the highest quality 
-          and freshness. Our elegant decor, combined with warm hospitality, creates an atmosphere that is 
-          both inviting and luxurious. Whether you're here for a romantic dinner, a family celebration, or 
-          a corporate event, we promise an unforgettable experience. At Restaurant Name, we don't just serve 
-          food; we create memories. Join us and indulge in a journey of flavors, where every bite tells a story.
-        </p>
-      </div>
-      <div class="about-images">
-        <img src="https://images.pexels.com/photos/460537/pexels-photo-460537.jpeg?auto=compress&cs=tinysrgb&w=400" alt="About Image 1">
-        <img src="https://images.pexels.com/photos/1833349/pexels-photo-1833349.jpeg?auto=compress&cs=tinysrgb&w=400" alt="About Image 2">
-        <img src="https://media.istockphoto.com/id/1131393938/photo/very-stylish-indian-gourmet-restaurant.jpg?s=612x612&w=0&k=20&c=ZMWsymm_r2PcPmY_ebb06seXbcUQne8VVsXEQ8TqdYc=" alt="About Image 3">
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Us -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <div class="contact-content">
-      <div class="contact-info">
-        <p><strong>Address:</strong> random Dining Street, Pune, India</p>
-        <p><strong>Email:</strong> info@restaurant.com</p>
-        <p><strong>Phone:</strong> +1234567890</p>
-        <p><strong>Opening Hours:</strong> Mon-Sun: 11:00 AM - 11:00 PM</p>
-      </div>
-      <div class="contact-map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345093747!2d144.9537353153166!3d-37.816279742021665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d6a32f7f1f8e!2sRestaurant%20Name!5e0!3m2!1sen!2sus!4v1622549400000!5m2!1sen!2sus"
-          width="100%"
-          height="300"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy">
-        </iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <h3>Certifications & Awards</h3>
-      <div class="awards">
-        <img src="https://dining.carleton.ca/wp-content/uploads/GRC-1-450x408.png" alt="Award 1">
-        <img src="https://images.besttemplates.com/wp-content/uploads/2024/06/Chef-Food-CateringThank-You-Certificate-copy-Mockup.jpg" alt="Award 2">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLV2NLqQBnAx4Q22-5sFaCs7RcdBq2l0LzhQ&s" alt="Award 3">
-      </div>
-      <p>&copy; 2025 EAT OUT. All rights reserved.</p>
-    </div>
-  </footer>
+  <!-- ✅ Sticky Footer Page Container END -->
 
   <script src="/js/description.js"></script>
-
+  <script src="js/foodSection.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 .banner-section {
-  width: 100vw;
+  width: 100%; /* ✅ Prevents overflow due to scrollbar width mismatch */
   height: 100vh;
   overflow: hidden;
   position: relative;
