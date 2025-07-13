@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #eaeaea;
+  }
+
+  .description-section {
+    display: flex;
+    flex-direction: row;
+    height: 75vh;
+    padding: 4rem;
+    background-color: #eaeaea;
+  }
+
+  .left-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 2rem;
+  }
+
+  .left-content h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .left-content p {
+    font-size: 1.5rem;
+    max-width: 90%;
+    line-height: 1.6;
+  }
+
+  .right-content {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .image-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .image-container img.active {
+    opacity: 1;
+  }
+
+  .indicator-wrapper {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+    align-items: flex-end;
+  }
+
+  .indicator {
+    width: 14px;
+    height: 14px;
+    border: 2px solid black;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .indicator::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease;
+  }
+
+  .indicator.active {
+    transform: scale(1.3);
+  }
+
+  .indicator.active::after {
+    width: 14px;
+  }
+
+  /* Responsive for tablet */
+  @media (max-width: 900px) {
+    .description-section {
+      flex-direction: column;
+      height: auto;
+    }
+
+    .right-content {
+      height: 400px;
+      margin-top: 2rem;
+    }
+
+    .left-content h1 {
+      font-size: 3rem;
+    }
+
+    .left-content p {
+      font-size: 1.25rem;
+    }
+  }
