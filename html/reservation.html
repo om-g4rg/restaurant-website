@@ -4,70 +4,134 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reservation</title>
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="/css/reservation.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link rel="stylesheet" href="/css/footer.css">
 </head>
 <body>
 
   <!-- Navbar -->
-<nav class="navbar">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="./html/menu.html">Menu</a></li>
-    <li><a href="./html/reservation.html">Reservation</a></li>
-    <li><a href="#about">About Us</a></li>
-    <li><a href="#contact">Contact Us</a></li>
-  </ul>
-  <div class="nav-icon">🍽️</div>
-</nav>
+  <nav class="navbar">
+    <div class="nav-logo">
+      <a href="index.html">LOGO</a>
+    </div>
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="./html/menu.html">Menu</a></li>
+      <li><a href="/html/reservation.html">Reservation</a></li>
+      <li><a href="/index.html#description">About Us</a></li>
+      <li><a href="/index.html#footer">Contact Us</a></li>
+    </ul>
+    <div class="nav-icon">🍽️</div>
+  </nav>
 
   <!-- Reservation Form -->
   <section class="reservation">
-    <br>
-    <h2>Make a Reservation</h2>
-    <form id="reservationForm" style="display: block;">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" maxlength="10">
-
-      <label for="phone">Guests:</label>
-      <input type="number" id="Guests" name="Guests" maxlength="2">
-
-      <label for="date">Date:</label>
-      <input type="date" id="date" name="date" required>
-      
-
-      <label for="time">Select Time:</label>
-        <select id="time" name="time" required>
-          <option value="">-- Select a Time --</option>
-          <option value="08:30">08:30 AM</option>
-          <option value="09:30">09:30 AM</option>
-          <option value="10:30">10:30 AM</option>
-          <option value="10:35">10:35 AM</option>
-          <option value="11:30">11:30 AM</option>
-          <option value="12:30">12:30 PM</option>
-          <option value="13:30">01:30 PM</option>
-          <option value="14:30">02:30 PM</option>
-          <option value="15:30">03:30 PM</option>
-          <option value="16:30">04:30 PM</option>
-          <option value="17:30">05:30 PM</option>
-          <option value="18:30">06:30 PM</option>
-          <option value="19:30">07:30 PM</option>
-          <option value="20:30">08:30 PM</option>
-          <option value="21:30">09:30 PM</option>
-        </select>
-
-      <button type="button" id="proceedButton">Proceed to Payment</button>
-
-
-          <!-- ✅ Additional Buttons -->
-    <button type="button" id="checkReservationBtn" style="margin-top: 10px;">Check Reservation</button>
+  <div class="reservation-container">
     
-    <button type="button" id="cancelReservationBtn" style="margin-top: 10px; background-color: #ff5555; color: white;">Cancel Reservation</button>
-    </form>
+    <!-- Left side: Form -->
+    <div class="form-left">
+      <h2>Make a Reservation</h2>
+      <form id="reservationForm" style="display: block;">
+
+        <!-- Name -->
+        <div class="input-row name-row">
+          <div class="half">
+            <div class="label-box">Name:</div>
+            <input type="text" id="name" name="name" required>
+          </div>
+        </div>
+
+        <!-- Number and Guests -->
+        <div class="input-row">
+          <div class="half">
+            <div class="label-box">Phone:</div>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" maxlength="10">
+          </div>
+          <div class="half">
+            <div class="label-box">Guests:</div>
+            <input type="number" id="Guests" name="Guests" maxlength="2">
+          </div>
+        </div>
+
+        <!-- Date and Time -->
+        <div class="input-row">
+          <div class="half">
+            <div class="label-box">Date:</div>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div class="half">
+            <div class="label-box">Time:</div>
+            <select id="time" name="time" required>
+              <option value="">-- Select a Time --</option>
+              <option value="08:30">08:30 AM</option>
+              <option value="09:30">09:30 AM</option>
+              <option value="10:30">10:30 AM</option>
+              <option value="10:35">10:35 AM</option>
+              <option value="11:30">11:30 AM</option>
+              <option value="12:30">12:30 PM</option>
+              <option value="13:30">01:30 PM</option>
+              <option value="14:30">02:30 PM</option>
+              <option value="15:30">03:30 PM</option>
+              <option value="16:30">04:30 PM</option>
+              <option value="17:30">05:30 PM</option>
+              <option value="18:30">06:30 PM</option>
+              <option value="19:30">07:30 PM</option>
+              <option value="20:30">08:30 PM</option>
+              <option value="21:30">09:30 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-row">
+          <button type="button" id="proceedButton" class="main-btn">Proceed to Payment</button>
+          <button type="button" id="checkReservationBtn" class="secondary-btn">Check Reservation</button>
+        </div>
+        <div class="button-row">
+          <button type="button" id="cancelReservationBtn" class="cancel-btn">Cancel Reservation</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Right side: Image -->
+      <div class="image-right">
+        <!-- You can put an actual image here -->
+        <img src="your-image.jpg" alt="Reservation" />
+      </div>
+    </div>
   </section>
+
+  <footer class="footer" id="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <h1>Meowww's</h1>
+        <p>
+          Meowww is your cozy neighborhood diner, serving up delicious dishes made with love and tradition...
+        </p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-column">
+          <h3>Page</h3>
+          <span>Home</span><span>Menu</span><span>Reservation</span><span>About</span>
+        </div>
+        <div class="footer-column">
+          <h3>Links</h3>
+          <span>Instagram</span><span>Facebook</span><span>Twitter</span><span>LinkedIn</span>
+        </div>
+        <div class="footer-column">
+          <h3>Contacts</h3>
+          <span>miltons@example.com</span><span>+91-9876543210</span>
+          <span>123 Diner St, Cityville</span><span>WhatsApp</span>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="footer-bottom">
+      <p>Verified by National Restaurant Authority</p>
+    </div>
+  </footer>
+
 
   
 

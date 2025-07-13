@@ -1,0 +1,169 @@
+/* General section styling */
+.reservation {
+  background-color: #e0e0e0;
+  min-height: 90vh;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container for layout */
+.reservation-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  gap: 40px;
+}
+
+/* Form Left Section */
+.form-left {
+  flex: 1;
+  min-width: 320px;
+}
+
+.form-left h2 {
+  font-size: 28px;
+  color: #4b2c20;
+  margin-bottom: 30px;
+}
+
+/* Input row layouts */
+.input-row {
+  display: flex;
+  gap: 20px; /* ✅ Space between phone & guests, date & time */
+  margin-bottom: 20px;
+}
+
+.input-row.full-width {
+  width: 100%;
+}
+
+/* Half width fields */
+.half {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Label box style */
+.label-box {
+  border: 2px solid #4b2c20;
+  color: #4b2c20;
+  padding: 10px 15px;
+  white-space: nowrap;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  border-right: none; /* Prevent double border */
+}
+
+/* Input styles */
+input, select {
+  border: 2px solid #4b2c20;
+  border-left: none; /* Prevent double border */
+  padding: 10px;
+  height: 42px;
+  flex: 1;
+  outline: none;
+  color: #4b2c20;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+/* On focus or value filled */
+input:focus, input:valid,
+select:focus, select:valid {
+  background-color: #4b2c20;
+  color: #e0e0e0;
+}
+
+/* Also apply to guests, date, and time input types */
+input[type="number"]:focus,
+input[type="number"]:valid,
+input[type="date"]:focus,
+input[type="date"]:valid {
+  background-color: #4b2c20;
+  color: #e0e0e0;
+}
+
+/* Buttons section */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Primary button: Proceed */
+.main-btn {
+  border: 2px solid #4b2c20;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #4b2c20;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  max-width: 400px;
+}
+
+/* Secondary button: Check */
+.secondary-btn {
+  border: 2px solid #4b2c20;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #4b2c20;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  max-width: 400px;
+}
+
+/* Hover styles */
+.main-btn:hover,
+.secondary-btn:hover {
+  background-color: #4b2c20;
+  color: #e0e0e0;
+}
+
+/* Cancel button: smaller and below */
+.cancel-btn {
+  border: 2px solid #4b2c20;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #4b2c20;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  max-width: 290px; /* ✅ Same as Proceed button */
+  margin-top: 10px;
+}
+
+.cancel-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Image section */
+.image-right {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-right img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  border-radius: 10px;
+  object-fit: cover;
+}
