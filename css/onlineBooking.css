@@ -1,0 +1,56 @@
+.booking-banner-section {
+  height: 55vh;
+  background-color: #2f1a13;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 3rem; /* 1 unit top/bottom, 15 units left/right */
+  box-sizing: border-box;
+}
+
+.booking-banner-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-banner-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.booking-banner-heading {
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  z-index: 1;
+  margin-bottom: 1rem;
+}
+
+.booking-banner-button {
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  padding: 12px 32px;
+  font-size: 1rem;
+  border-radius: 1000px; /* pill shape */
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.booking-banner-button:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.1);
+}
