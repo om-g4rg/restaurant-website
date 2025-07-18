@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reservation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
   <link rel="stylesheet" href="/css/reservation.css">
   <link rel="stylesheet" href="/css/navbar.css">
   <link rel="stylesheet" href="/css/footer.css">
@@ -58,7 +60,8 @@
         <div class="input-row">
           <div class="half">
             <div class="label-box">Date:</div>
-            <input type="date" id="date" name="date" required>
+            <!-- <input type="date" id="date" name="date" required> -->
+              <input type="text" id="date" placeholder="Select a date">
           </div>
           <div class="half">
             <div class="label-box">Time:</div>
@@ -97,7 +100,7 @@
     <!-- Right side: Image -->
       <div class="image-right">
         <!-- You can put an actual image here -->
-        <img src="your-image.jpg" alt="Reservation" />
+        <img src="/assets/images/dan-smedley-765Ogj6zVuI-unsplash.jpg" alt="Reservation" />
       </div>
     </div>
   </section>
@@ -137,6 +140,7 @@
 
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
   <script src="/js/reservationScript.js"></script>
 </body>

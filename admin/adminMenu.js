@@ -1,29 +1,6 @@
-// -------------PLACEHOLDER(MENU IS READY)------------------
+const menuSection = document.getElementById('menuSection');
 let currentEditingItemId = null;
 
-const menuSection = document.getElementById('menuSection');
-const reservationSection =document.getElementById(`reservationSection`);
-function showPage(page) {
-
-    if (page === 'menu') {
-        document.getElementById('pageTitle').innerText = " ";
-        menuSection.classList.remove('hidden');// Show menu section
-        reservationSection.classList.add(`hidden`);
-        adminMenuDisplay();
-    }
-    else if(page === `reservations`){
-        document.getElementById(`pageTitle`).innerText=" ";
-        reservationSection.classList.remove(`hidden`);
-        menuSection.classList.add('hidden');
-        adminReservationDisplay();
-    }
-     else {
-        document.getElementById('pageTitle').innerText = page;
-        menuSection.classList.add('hidden'); // Hide menu section
-        reservationSection.classList.add(`hidden`);
-    }
-}
-// -------------------- POP_UP -----------------------------
 // Function to show the popup
 document.addEventListener("DOMContentLoaded", function () {
     const addBtn = document.getElementById("addMenuBtn");
@@ -89,7 +66,10 @@ function saveBtn(){
     }
 
 }
+
 // ---------------------------Menu_Display---------------------------------------
+window.onload= adminMenuDisplay();
+
 async function adminMenuDisplay(){
     try{
       const response= await fetch("http://localhost:8000/get-item");
@@ -134,42 +114,9 @@ async function adminMenuDisplay(){
     }catch(err){
       alert(`Error is :${err}`);
     }
-  }
+}
 
-  
-// --------------------------------RESERVATION DISPLAY------------------------
-
-async function adminReservationDisplay(){
-    try{
-      const response= await fetch("http://localhost:8000/get-reservation");
-      const menuItems= await response.json();
-  
-      const container=document.querySelector("#reservationContainer");
-      container.innerHTML="";
-  
-      menuItems.forEach(item => {
-        const newItem = document.createElement("div");
-        newItem.classList.add("reservationItem");
-  
-        newItem.innerHTML = `
-        <h3>${item.name}</h3>
-        <p>${item.phone}</p>
-        <p>${item.date}</p>
-        <p>${item.time}</p>
-        <span>Guests: ${item.guests}</span>
-    `;
-        container.appendChild(newItem);
-    });
-      
-    }catch(err){
-      alert(`Error is :${err}`);
-    }
-  }
- 
-
-
-// ------------------------------------------------------------------------------
-
+// --------------------------delete menu item-------------------------------------
 async function deleteMenuItem(itemId){
     try{
       const response= await fetch(`http://localhost:8000/delete-menu-item/${itemId}`,{
@@ -186,6 +133,8 @@ async function deleteMenuItem(itemId){
     }
 }
 
+
+// --------------------------open edit popup-------------------------------
 async function openEditPopup(itemId) {
     currentEditingItemId = itemId;
 
@@ -203,9 +152,14 @@ async function openEditPopup(itemId) {
     document.getElementById("editPopup").style.display = "block";
 }
 
+
+// -------------------------------close edit popup-----------------------------
 function closeEditPopup() {
     document.getElementById("editPopup").style.display = "none";
 }
+
+
+// ----------------save edit items--------------------
 
 async function saveEditedItem(){
     if (!currentEditingItemId) {

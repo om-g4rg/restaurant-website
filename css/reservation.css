@@ -1,5 +1,7 @@
 /* General section styling */
 .reservation {
+  /* margin-top: px; */
+  padding-top: 10px;
   background-color: #e0e0e0;
   min-height: 90vh;
   padding: 40px 20px;
@@ -167,3 +169,31 @@ input[type="date"]:valid {
   border-radius: 10px;
   object-fit: cover;
 }
+.flatpickr-day.fully-booked {
+  background-color: black;
+  color: white;
+  cursor: not-allowed;
+}
+
+.flatpickr-day.partially-booked {
+  background-color: black !important;
+  color: white !important;
+  border-radius: 50%;
+}
+
+.fully-booked span {
+  background-color: #ff4d4d !important;
+  color: white !important;
+  border-radius: 50% !important;
+}
+.partially-booked span {
+  background-color: #ffa500 !important;
+  color: white !important;
+  border-radius: 50% !important;
+}
+option.booked-time {
+  background-color: black;
+  color: white;
+}
+
+

@@ -1,7 +1,9 @@
 window.onload = function () {
-  const today = new Date();
-  const nextMonth = new Date();
-  nextMonth.setMonth(today.getMonth() + 1);
+  const allTimeslots = [
+    "08:30", "09:30", "10:30", "10:35", "11:30", "12:30",
+    "13:30", "14:30", "15:30", "16:30", "17:30", "18:30",
+    "19:30", "20:30", "21:30"
+  ];
 
   const formatDate = (date) => {
     const year = date.getFullYear();
@@ -10,9 +12,67 @@ window.onload = function () {
     return `${year}-${month}-${day}`;
   };
 
-  const dateInput = document.getElementById("date");
-  dateInput.min = formatDate(today);
-  dateInput.max = formatDate(nextMonth);
+  const today = new Date();
+  const nextMonth = new Date();
+  nextMonth.setMonth(today.getMonth() + 1);
+
+  let reservationMap = {};  // Will store date => Set(times)
+
+  fetch("http://localhost:8000/reserved-dates")  // Adjust this to your backend API
+    .then(res => res.json())
+    .then(data => {
+      const fullyBookedDates = new Set();
+
+      data.forEach(({ date, times }) => {
+        reservationMap[date] = new Set(times);
+
+        if (times.length >= allTimeslots.length) {
+          fullyBookedDates.add(date);
+        }
+      });
+
+      flatpickr("#date", {
+        dateFormat: "Y-m-d",
+        minDate: formatDate(today),
+        maxDate: formatDate(nextMonth),
+
+        onDayCreate: function(dObj, dStr, fp, dayElem) {
+          const dateStr = dayElem.dateObj.toISOString().split("T")[0];
+
+          if (fullyBookedDates.has(dateStr)) {
+            dayElem.classList.add("fully-booked");
+          }
+        },
+
+        onChange: function(selectedDates, dateStr, instance) {
+          if (fullyBookedDates.has(dateStr)) {
+            alert("This date is fully booked. Please choose another date.");
+            instance.clear();
+          } else {
+            highlightBookedTimes(dateStr);
+          }
+        }
+      });
+    });
+
+  function highlightBookedTimes(dateStr) {
+  const bookedTimes = reservationMap[dateStr] || new Set();
+  const select = document.getElementById("time");
+  const options = select.querySelectorAll("option");
+
+  options.forEach(opt => {
+    const timeValue = opt.value;
+    
+    // Reset all options
+    opt.classList.remove("booked-time");
+    opt.disabled = false;
+
+    if (bookedTimes.has(timeValue)) {
+      opt.classList.add("booked-time");
+      opt.disabled = true; // 🔒 Prevent user from selecting it
+    }
+  });
+}
 };
 
 

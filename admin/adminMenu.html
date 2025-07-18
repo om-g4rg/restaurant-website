@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- --------------------SIDEBAR--------------------- -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="adminMenu.html">Menu</a></li>
+            <li><a href="adminReservation.html">Reservations</a></li>
+        </ul>
+    </nav>
+
+    <!-- -------------------------main content---------------- -->
+
+    <main class="content">
+        
+    <!-- ----------------------menu section------------------------- -->
+    <div id="menuSection">
+        <div class="banner">
+            <img src="https://www.conradpune.com/wp-content/uploads/2022/08/1-8.png" alt="Menu Banner">
+        </div>
+        <button class="add-btn" id="addMenuBtn">+ Add</button>
+
+        <div id="menuContainer"></div>
+    </div>
+    
+    <!-- -----------------------popup------------------------------ -->
+
+    <div id="menuPopup" class="popup hidden">
+        <div class="popup-content">
+        <h2>Add Menu Item</h2>
+
+        <label>Upload Photo:</label>
+        <input type="file" id="menuPhoto"><br>
+
+        <label>Item Name:</label>
+        <input type="text" id="menuName" placeholder="Enter dish name"><br>
+
+        <label>Price:</label>
+        <input type="number" id="menuPrice" placeholder="Enter price"><br>
+
+        <label>Ingredients:</label>
+        <textarea id="menuIngredients" placeholder="Enter ingredients"></textarea><br>
+
+        <!-- ✅ Category Dropdown -->
+        <label>Category:</label>
+        <select id="menuCategory">
+            <option value="" disabled selected>Select a category</option>
+            <option value="starters">Starters</option>
+            <option value="main-course">Main Course</option>
+            <option value="dessert">Dessert</option>
+            <option value="beverages">Beverages</option>
+        </select><br>
+
+        <div class="popup-buttons">
+            <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+            <button class="save-btn" onclick="saveBtn()">Save</button>
+        </div>
+        </div>
+    </div>
+
+    <!-- ------------------------------edit popup---------------------------------- -->
+
+    <div id="editPopup" class="popup hidden">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closeEditPopup()">&times;</span>
+            <h2>Edit Menu Item</h2>
+
+            <input type="text" id="editName" placeholder="Item Name">
+            <input type="text" id="editIngredients" placeholder="Ingredients">
+            <input type="number" id="editPrice" placeholder="Price">
+            <input type="file" id="editImageFile">
+
+            <!-- ✅ Category Dropdown -->
+            <label>Category:</label>
+            <select id="editCategory">
+            <option value="" disabled selected>Select category</option>
+            <option value="starters">Starters</option>
+            <option value="main-course">Main Course</option>
+            <option value="dessert">Dessert</option>
+            <option value="beverages">Beverages</option>
+            </select><br>
+
+            <button id="saveEdit" onclick="saveEditedItem()">Save Changes</button>
+        </div>
+    </div>
+    </main>
+
+    <script src="adminMenu.js"></script>
+</body>
+</html>

@@ -232,6 +232,34 @@ app.delete("/delete-reservation", async (req, res) => {
 });
 
 
+app.get('/reserved-dates', async (req, res) => {
+  try {
+    const reservations = await reservationModel.find({}, 'date time').lean();
+
+    const dateMap = {};
+
+    for (const reservation of reservations) {
+      // Format the date to YYYY-MM-DD
+      const dateStr = new Date(reservation.date).toISOString().split('T')[0];
+      if (!dateMap[dateStr]) {
+        dateMap[dateStr] = [];
+      }
+      dateMap[dateStr].push(reservation.time);
+    }
+
+    // Convert map to array format
+    const result = Object.keys(dateMap).map(date => ({
+      date,
+      times: dateMap[date]
+    }));
+
+    res.json(result);
+  } catch (err) {
+    console.error('Error fetching reserved dates:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 app.listen(8000,()=>{
   console.log("listening..")
