@@ -31,6 +31,13 @@ body {
   box-sizing: border-box;
 }
 
+.menu-divider {
+  border: none;
+  height: 2px;
+  background-color: #4b2c20;
+  margin-bottom: 20px;
+}
+
 /* Menu heading */
 .menu #headerText {
   font-size: 2.8rem;
