@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/onlineBooking.css">
   <link rel="stylesheet" href="css/contactUs.css">
-
+  <link rel="stylesheet" href="css/dining.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 
 
 </head>
@@ -61,7 +62,58 @@
 
       </section>
 
-      <!-- Description Section -->
+      <!-- Dining Section -->
+      <section id="dining-section" class="h-[75vh] w-full px-8 py-8 flex flex-col overflow-hidden">
+
+        <!-- Heading -->
+        <h1 class="text-5xl font-bold mb-8">Dining</h1>
+
+        <!-- Main Layout -->
+        <div class="flex flex-grow items-center justify-between max-w-[100vw] w-full mx-auto relative">
+
+
+            <!-- Left Column -->
+            <div class="flex flex-col justify-center space-y-10">
+            <div data-rotation="-60" onmouseover="rotateCircle(this)" onmouseout="resetRotation()" class="w-96 h-28 border-2 rounded-lg cursor-pointer hover:bg-gray-200 transition"></div>
+            <div data-rotation="-120" onmouseover="rotateCircle(this)" onmouseout="resetRotation()" class="w-96 h-28 border-2 rounded-lg cursor-pointer hover:bg-gray-200 transition"></div>
+            <div data-rotation="-180" onmouseover="rotateCircle(this)" onmouseout="resetRotation()" class="w-96 h-28 border-2 rounded-lg cursor-pointer hover:bg-gray-200 transition"></div>
+            </div>
+
+
+            <!-- Center Circle -->
+            <div class="w-[26vw] h-[26vw] min-w-[280px] min-h-[280px] border-2 rounded-full relative z-0 overflow-hidden">
+            <div id="circle-image"
+                class="w-full h-full bg-cover bg-center transition-transform duration-500"
+                style="background-image: url('../assets/images/menuBanner03.jpg'); transform: rotate(0deg);">
+            </div>
+            </div>
+
+            <!-- Right Arc -->
+            <div class="relative w-[32vw] h-[26vw] min-w-[320px] min-h-[280px] flex-shrink-0 ml-[-6vw]">
+            <div data-rotation="45" onmouseover="rotateCircle(this)" onmouseout="resetRotation()" class="absolute top-[0%] right-[50%] w-72 h-24 border-2 rounded-lg cursor-pointer hover:bg-gray-200 transition"></div>
+            <div data-rotation="90" onmouseover="rotateCircle(this)" onmouseout="resetRotation()" class="absolute top-[26%] right-[36%] w-72 h-24 border-2 rounded-lg cursor-pointer hover:bg-gray-200 transition"></div>
+            <div data-rotation="135" onmouseover="rotateCircle(this)" onmouseout="resetRotation()" class="absolute top-[52%] right-[36%] w-72 h-24 border-2 rounded-lg cursor-pointer hover:bg-gray-200 transition"></div>
+            <div data-rotation="180" onmouseover="rotateCircle(this)" onmouseout="resetRotation()" class="absolute top-[78%] right-[50%] w-72 h-24 border-2 rounded-lg cursor-pointer hover:bg-gray-200 transition"></div>
+            </div>
+
+
+
+
+        </div>
+      </section>
+
+      <!-- --------- online booking section ------------ -->
+            
+      <section class="booking-banner-section">
+        <div class="booking-banner-container">
+          <img src="/assets/images/bookYourTable.jpg" alt="Booking Image" />
+          <h1 class="booking-banner-heading">Book Your Table</h1>
+          <a href="/html/reservation.html" class="booking-banner-button">Online Booking</a>
+
+        </div>
+      </section>
+
+            <!-- Description Section -->
       <section class="description-section" id="description">
         <div class="left-content">
           <h1>About Us</h1>
@@ -80,17 +132,6 @@
               <div class="indicator"></div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- --------- online booking section ------------ -->
-            
-      <section class="booking-banner-section">
-        <div class="booking-banner-container">
-          <img src="/assets/images/bookYourTable.jpg" alt="Booking Image" />
-          <h1 class="booking-banner-heading">Book Your Table</h1>
-          <a href="/html/reservation.html" class="booking-banner-button">Online Booking</a>
-
         </div>
       </section>
 
